@@ -43,4 +43,4 @@ jobs:
 
       # Étape 5 : Exécuter le conteneur Docker
       - name: Run Docker container
-        run: docker run image
+        run: docker run image > answer_associativity.txt
