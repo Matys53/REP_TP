@@ -44,3 +44,9 @@ jobs:
       # Étape 5 : Exécuter le conteneur Docker
       - name: Run Docker container
         run: docker run image > answer_associativity.txt
+
+      - name: Upload answer associativity
+        uses: actions/upload-artifact@v4
+        with:
+          name: answer associativity
+          path: answer_associativity.txt
