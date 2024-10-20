@@ -9,3 +9,5 @@ Le code génère 1 000 000 de tests avec des nombres aléatoires entre -1000 et 
 Le pourcentage de bonnes réponses est indiqué à l'issue de tous les calculs. 
 
 Le résultat obtenu est le suivant : **93.1 %** de bonnes réponses.
+
+test github action
