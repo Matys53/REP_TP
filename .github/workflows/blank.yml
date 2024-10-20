@@ -39,7 +39,7 @@ jobs:
           
       # Étape 4 : Construire l'image Docker
       - name: Build Docker image
-        run: docker build -t mon-projet-java .
+        run: docker build -t image .
 
       # Étape 5 : Exécuter le conteneur Docker
       - name: Run Docker container
