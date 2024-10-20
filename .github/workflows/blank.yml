@@ -26,10 +26,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Build Docker image
-      - name: Build Docker image
-        run: docker build -t image .
+      # Étape 2 : Configurer Java (version 17 ici)
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # Utiliser la distribution OpenJDK
+          java-version: '17'
 
-      # Run tests
+      # Étape 3 : Construire le projet Java avec Maven
+      - name: Build project with Maven
+        run: mvn clean package  # Génère le .jar dans target/
+          
+      # Étape 4 : Construire l'image Docker
+      - name: Build Docker image
+        run: docker build -t mon-projet-java .
+
+      # Étape 5 : Exécuter le conteneur Docker
       - name: Run Docker container
         run: docker run image
