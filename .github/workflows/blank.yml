@@ -47,8 +47,8 @@ jobs:
 
       - name: Set up Git user
         run: |
-          git config user.name "Matys53"
-          git config user.email "matys.courousse@gmail.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Commit and Push changes
         env:
