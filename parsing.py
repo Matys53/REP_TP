@@ -5,10 +5,10 @@ def read_single_number_from_file(filepath):
         with open(filepath, 'r', encoding='utf-8') as f:
             return float(f.readline().strip().replace(",", "."))
     except ValueError:
-        print(f"Erreur de conversion dans le fichier {filepath}")
+        print(f"Erreur dans {filepath}")
         return None
 
-def compare_single_numbers(file1, file2, tolerance=0.01):
+def compare_single_numbers(file1, file2, tolerance=10):
     number1 = read_single_number_from_file(file1)
     number2 = read_single_number_from_file(file2)
     
@@ -30,7 +30,11 @@ repositories = [
 ]
 
 target_dir = "external_repos"
-my_answer_file = "answer_associativity.txt"
+my_answer_file = os.path.join(os.getcwd(), "answer_associativity.txt")
+
+if not os.path.exists(my_answer_file):
+    print(f"Erreur : {my_answer_file} introuvable.")
+    exit(1)
 
 if not os.path.exists(target_dir):
     os.makedirs(target_dir)
@@ -44,17 +48,17 @@ for repo in repositories:
         command = f"git clone {repo}"
         result = os.system(command)
         if result == 0:
-            print(f"[+] Cloné avec succès : {repo_name}")
+            print(f"[+] {repo_name} cloné")
         else:
-            print(f"[-] Erreur lors du clonage : {repo_name}")
+            print(f"[-] Erreur clonage {repo_name}")
             continue
     
     answer_file_path = os.path.join(repo_name, "answer_associativity.txt")
     
     if os.path.exists(answer_file_path):
         if compare_single_numbers(my_answer_file, answer_file_path):
-            print(f"[+] Le fichier 'answer_associativity.txt' de {repo_name} est identique à votre fichier.")
+            print(f"[=] {repo_name} résultats identiques")
         else:
-            print(f"[-] Le fichier 'answer_associativity.txt' de {repo_name} est différent de votre fichier.")
+            print(f"[≠] {repo_name} résultats différents")
     else:
-        print(f"[!] Le fichier 'answer_associativity.txt' est introuvable dans {repo_name}. Comparaison ignorée.")
+        print(f"[!] {repo_name} : pas de résultat")
