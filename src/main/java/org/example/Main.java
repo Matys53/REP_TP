@@ -25,7 +25,7 @@ public class Main {
         }
 
         double percentageValid = (validCount * 100.0) / iterations;
-        System.out.println("Pourcentage d'égalités valides : " + percentageValid + "% ");
+        System.out.println(percentageValid);
     }
 
 }
