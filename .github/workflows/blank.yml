@@ -6,9 +6,9 @@ name: Test Workflow
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches: [ "modif2" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "modif2" ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -58,9 +58,3 @@ jobs:
           git commit -m "generated"
           git push
 
-
-     # - name: Upload answer associativity
-      #  uses: actions/upload-artifact@v4
-       # with:
-        #  name: answer associativity
-         # path: answer_associativity.txt
