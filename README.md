@@ -8,7 +8,7 @@ Ce code permet de tester l'associativité de l'addition en Java en vérifiant l'
 
 Le code génère 1 000 000 de tests avec des nombres aléatoires. Ensuite, il effectue le calcul mentionné ci-dessus et teste l'égalité. Le pourcentage de bonnes réponses est indiqué à l'issue de tous les calculs.
 
-# Résultats
+### Résultats
 
 Avec des nombres aléatoires entre -1000 et 1000, le résultat obtenu est de **93.1 %** de bonnes réponses.
 Si on limite les nombres aléatoires entre 0 et 1000, le résultat est de **74%**.
