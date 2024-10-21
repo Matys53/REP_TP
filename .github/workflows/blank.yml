@@ -6,9 +6,9 @@ name: Test Workflow
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,13 +30,13 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'  # Utiliser la distribution OpenJDK
-          java-version: '17'
+          distribution: "temurin" # Utiliser la distribution OpenJDK
+          java-version: "17"
 
       # Étape 3 : Construire le projet Java avec Maven
       - name: Build project with Maven
-        run: mvn clean package  # Génère le .jar dans target/
-          
+        run: mvn clean package # Génère le .jar dans target/
+
       # Étape 4 : Construire l'image Docker
       - name: Build Docker image
         run: docker build -t image .
@@ -47,20 +47,19 @@ jobs:
 
       - name: Set up Git user
         run: |
-          git config user.name "Matys53"
-          git config user.email "matys.courousse@gmail.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Commit and Push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Utiliser le token fourni par GitHub
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add .
           git commit -m "generated"
           git push
 
-
-     # - name: Upload answer associativity
+      # - name: Upload answer associativity
       #  uses: actions/upload-artifact@v4
-       # with:
-        #  name: answer associativity
-         # path: answer_associativity.txt
+      # with:
+      #  name: answer associativity
+      # path: answer_associativity.txt
