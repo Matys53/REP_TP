@@ -25,7 +25,7 @@ public class Main {
         }
 
         double percentageValid = (validCount * 100.0) / iterations;
-        System.out.println(percentageValid);
+        System.out.println(String.format("%.2f", percentageValid));
     }
 
 }
