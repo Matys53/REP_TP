@@ -1,0 +1,27 @@
+import random
+
+def check_property(repetitions):
+    correct_count = 0
+    min = {{min}}
+    max = {{max}}
+    for _ in range(repetitions):
+        a = random.uniform(min, max)
+        b = random.uniform(min, max)
+        c = random.uniform(min, max)
+
+        result1 = (a + b) + c
+        result2 = a + (b + c)
+
+        if result1 == result2:
+            correct_count += 1
+
+    result = round((correct_count/repetitions)*100, 2)
+    with open("results.csv", mode='a', newline='') as fichier_csv:
+        writer = csv.writer(fichier_csv)
+        data = [min, max, repetitions, result]
+        print(data)
+        writer.writerow(data)
+    print(result)
+
+repetitions = {{ repetitions }}
+check_property(repetitions)
