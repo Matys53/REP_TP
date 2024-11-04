@@ -42,13 +42,13 @@ Pour vérifier que le langage de programmation n'est pas un facteur déterminant
 1. **Construire l'image Docker :**
 
 ```bash
-docker build -t associativity-property .
+docker build -t answer_associativity .
 ```
 
 2. **Lancer le conteneur Docker :**
 
 ```bash
-docker run associative-property
+docker run answer_associativity
 ```
 
 3. **Exécuter les scripts pour générer les résultats :**
