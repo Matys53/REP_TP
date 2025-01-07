@@ -33,5 +33,3 @@ The Jupyter notebook will be available at the link printed in the terminal (e.g.
 
 ### Is the Original Study Reproducible?
 
-
-
